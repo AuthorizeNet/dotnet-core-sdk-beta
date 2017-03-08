@@ -1,0 +1,51 @@
+﻿using System;
+using System.Collections.Generic;
+using AuthorizeNET.Api.Controllers;
+using AuthorizeNET.Api.Contracts.V1;
+using AuthorizeNET.Api.Controllers.Bases;
+
+namespace net.authorize.sample
+{
+    public class DeleteCustomerPaymentProfile
+    {
+        public static ANetApiResponse Run(String ApiLoginID, String ApiTransactionKey, string customerProfileId,
+            string customerPaymentProfileId)
+        {
+            Console.WriteLine("DeleteCustomerPaymentProfile Sample");
+            ApiOperationBase<ANetApiRequest, ANetApiResponse>.RunEnvironment = AuthorizeNET.Environment.SANDBOX;
+            ApiOperationBase<ANetApiRequest, ANetApiResponse>.MerchantAuthentication = new merchantAuthenticationType()
+            {
+                name = ApiLoginID,
+                ItemElementName = ItemChoiceType.transactionKey,
+                Item = ApiTransactionKey,
+            };
+
+            //please update the subscriptionId according to your sandbox credentials
+            var request = new deleteCustomerPaymentProfileRequest
+            {
+                customerProfileId = customerProfileId,
+                customerPaymentProfileId = customerPaymentProfileId
+            };
+
+            //Prepare Request
+            var controller = new deleteCustomerPaymentProfileController(request);
+            controller.Execute();
+
+            //Send Request to EndPoint
+            deleteCustomerPaymentProfileResponse response = controller.GetApiResponse();
+            if (response != null && response.messages.resultCode == messageTypeEnum.Ok)
+            {
+                if (response != null && response.messages.message != null)
+                {
+                    Console.WriteLine("Success, ResultCode : " + response.messages.resultCode.ToString());
+                }
+            }
+            else if(response != null)
+            {
+                Console.WriteLine("Error: " + response.messages.message[0].code + "  " + response.messages.message[0].text);
+            }
+
+            return response;
+        }
+    }
+}
