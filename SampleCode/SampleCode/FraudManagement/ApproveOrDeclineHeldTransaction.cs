@@ -10,7 +10,7 @@ using AuthorizeNET.Api.Controllers.Bases;
 
 namespace net.authorize.sample
 {
-    class ApproveOrDeclineHeldTransaction
+    public class ApproveOrDeclineHeldTransaction
     {
         public static ANetApiResponse Run(String ApiLoginID, String ApiTransactionKey)
         {

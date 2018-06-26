@@ -48,8 +48,12 @@ namespace net.authorize.sample
                 if (response != null && response.messages.message != null)
                 {
                     Console.WriteLine("Success, CustomerProfileID : " + response.customerProfileId);
-                    Console.WriteLine("Success, CustomerPaymentProfileID : " + response.customerPaymentProfileIdList[0]);
-                    Console.WriteLine("Success, CustomerShippingProfileID : " + response.customerShippingAddressIdList[0]);
+
+                    if (response.customerPaymentProfileIdList.Length > 0)
+                        Console.WriteLine("Success, CustomerPaymentProfileID : " + response.customerPaymentProfileIdList[0]);
+
+                    if (response.customerShippingAddressIdList.Length > 0)
+                        Console.WriteLine("Success, CustomerShippingProfileID : " + response.customerShippingAddressIdList[0]);
                 }
             }
             else if(response != null)
