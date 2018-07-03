@@ -1,0 +1,27 @@
+language:
+    csharp
+    
+os:
+  - linux
+  - osx
+
+# install:
+    # - sudo apt-get install nunit-console
+
+before_script:
+    - nuget restore ./AuthorizeNET/AuthorizeNET/AuthorizeNET.csproj
+    - nuget restore ./SampleCode/SampleCode/SampleCode.csproj
+    - nuget restore ./SampleCode/SampleCodeTest/SampleCodeTest.csproj
+    - git submodule update --remote --recursive
+  
+script:
+    - msbuild ./AuthorizeNET/AuthorizeNET/AuthorizeNET.csproj
+    
+#   make mono happy by copying the config file with project name
+     # - cp AuthorizeNETtest/App.config AuthorizeNETtest/AuthorizeNETtest.config
+     # - nunit-console ./AuthorizeNETtest/AuthorizeNETtest.csproj -run=AuthorizeNet.Api.Controllers.MockTest -exclude Integration,NotWorkingOnMono
+   
+    - cp ./AuthorizeNET/AuthorizeNET/bin/Debug/netcoreapp1.1/AuthorizeNET.dll ./SampleCode/SampleCode/    
+    - msbuild ./SampleCode/SampleCode/SampleCode.csproj
+    - msbuild ./SampleCode/SampleCodeTest/SampleCodeTest.csproj 
+    # - nunit-console ./SampleCode/SampleCodeTest/SampleCodeTest.csproj -run=SampleCodeTest
