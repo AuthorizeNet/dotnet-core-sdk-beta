@@ -1,27 +1,23 @@
 language:
     csharp
-    
+dist: trusty 
+mono: latest 
+dotnet: 2.0.0 
+
 os:
   - linux
   - osx
 
-# install:
-    # - sudo apt-get install nunit-console
-
 before_script:
-    - nuget restore ./AuthorizeNET/AuthorizeNET/AuthorizeNET.csproj
-    - nuget restore ./SampleCode/SampleCode/SampleCode.csproj
-    - nuget restore ./SampleCode/SampleCodeTest/SampleCodeTest.csproj
     - git submodule update --remote --recursive
+    - dotnet restore ./AuthorizeNET/AuthorizeNET/AuthorizeNET.csproj
+    - dotnet restore ./SampleCode/SampleCode/SampleCode.csproj
+    - dotnet restore ./SampleCode/SampleCodeTest/SampleCodeTest.csproj
+    
   
 script:
-    - msbuild ./AuthorizeNET/AuthorizeNET/AuthorizeNET.csproj
+    - dotnet build ./AuthorizeNET/AuthorizeNET/AuthorizeNET.csproj
+    - dotnet build ./SampleCode/SampleCode/SampleCode.csproj
+    - dotnet build ./SampleCode/SampleCodeTest/SampleCodeTest.csproj
+    - dotnet test ./SampleCode/SampleCodeTest/SampleCodeTest.csproj
     
-#   make mono happy by copying the config file with project name
-     # - cp AuthorizeNETtest/App.config AuthorizeNETtest/AuthorizeNETtest.config
-     # - nunit-console ./AuthorizeNETtest/AuthorizeNETtest.csproj -run=AuthorizeNet.Api.Controllers.MockTest -exclude Integration,NotWorkingOnMono
-   
-    - cp ./AuthorizeNET/AuthorizeNET/bin/Debug/netcoreapp1.1/AuthorizeNET.dll ./SampleCode/SampleCode/    
-    - msbuild ./SampleCode/SampleCode/SampleCode.csproj
-    - msbuild ./SampleCode/SampleCodeTest/SampleCodeTest.csproj 
-    # - nunit-console ./SampleCode/SampleCodeTest/SampleCodeTest.csproj -run=SampleCodeTest
