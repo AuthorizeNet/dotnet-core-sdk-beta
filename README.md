@@ -6,9 +6,9 @@
 
 
 ## Requirements
-* .NET 3.5 or later
-* Microsoft&reg; Visual Studio 2008 or later
-* Nunit 2.6.3;
+* .NET Core 2.0.0 or later
+* Microsoft&reg; Visual Studio 2017 or later
+* Nunit (not supported by .Net Core);
 * An Authorize.Net account (see _Registration & Configuration_ section below)
 
 ### TLS 1.2
@@ -16,7 +16,7 @@ The Authorize.Net APIs only support connections using the TLS 1.2 security proto
 
 
 ## Installation
-To install the AuthorizeNet .NET SDK, run the following command in the Package Manager Console:
+To install the AuthorizeNet .NET Core SDK, run the following command in the Package Manager Console:
 
 `PM> Install-Package AuthorizeNet`
 
