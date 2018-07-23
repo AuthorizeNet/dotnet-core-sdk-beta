@@ -6,7 +6,7 @@
 
 
 ## Requirements
-* .NET Core 2.0.0 or later
+* .NET Core 1.1.0 or later
 * Microsoft&reg; Visual Studio 2017 or later
 * Nunit (not supported by .Net Core);
 * An Authorize.Net account (see _Registration & Configuration_ section below)
