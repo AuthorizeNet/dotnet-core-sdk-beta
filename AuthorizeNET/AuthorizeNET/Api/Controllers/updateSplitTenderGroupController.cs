@@ -11,10 +11,7 @@
 	    }
 
 	    override protected void ValidateRequest() {
-		    //validate required fields		
-		    //if ( null == request.Paging) throw new ArgumentException("Paging cannot be null");
-		
-		    //validate not-required fields		
+            var request = GetApiRequest();		    	
 	    }
     }
 

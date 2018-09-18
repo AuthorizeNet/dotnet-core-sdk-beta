@@ -3,7 +3,7 @@
     public class App
     {
 
-
+        public const string CpVersion = "1.0";  // card present version 
         protected Environment Environment { get; set; }
         protected string Login { get; set; }
         protected string TransactionKey { get; set; }

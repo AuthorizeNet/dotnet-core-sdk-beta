@@ -11,11 +11,7 @@
 	    }
 
 	    override protected void ValidateRequest() {
-		    //validate required fields		
-		    //if ( 0 == request.SearchType) throw new ArgumentException( "SearchType cannot be null");
-		    //if ( null == request.Paging) throw new ArgumentException("Paging cannot be null");
-		
-		    //validate not-required fields		
+            var request = GetApiRequest();		    	
 	    }
     }
 
