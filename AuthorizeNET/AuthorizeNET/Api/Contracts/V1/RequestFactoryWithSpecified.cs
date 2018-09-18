@@ -1,4 +1,4 @@
-﻿namespace AuthorizeNET.Api.Contracts.V1
+﻿namespace AuthorizeNet.Api.Contracts.V1
 {
     using System;
 

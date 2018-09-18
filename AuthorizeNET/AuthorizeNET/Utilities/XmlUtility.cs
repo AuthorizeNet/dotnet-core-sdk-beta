@@ -5,14 +5,14 @@ using System.Xml;
 using System.Xml.Serialization;
 using Microsoft.Extensions.Logging;
 
-namespace AuthorizeNET.Utilities
+namespace AuthorizeNet.Utilities
 {
     public static class XmlUtility
     {
 
         private static readonly ILogger Logger = LogFactory.getLog(typeof(XmlUtility));
 
-        public static string Serialize<T>(T entity) //where T: object //MarshalByRefObject //Serializable 
+        public static string Serialize<T>(T entity) 
         {
             string xmlString;
             var requestType = typeof(T);
@@ -40,7 +40,7 @@ namespace AuthorizeNET.Utilities
             return xmlString;
         }
 
-        public static T Deserialize<T>(string xml) //where T: object //MarshalByRefObject
+        public static T Deserialize<T>(string xml)
         {
             var entity = default(T);
 

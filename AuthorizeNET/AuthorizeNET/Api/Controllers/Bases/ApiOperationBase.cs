@@ -1,4 +1,4 @@
-namespace AuthorizeNET.Api.Controllers.Bases
+namespace AuthorizeNet.Api.Controllers.Bases
 {
     using System.Collections.Generic;
     using System.Globalization;
@@ -13,7 +13,7 @@ namespace AuthorizeNET.Api.Controllers.Bases
     {
         protected static ILogger Logger = LogFactory.getLog(typeof(ApiOperationBase<TQ, TS>));
 
-        public static AuthorizeNET.Environment RunEnvironment { get; set; }
+        public static AuthorizeNet.Environment RunEnvironment { get; set; }
         public static merchantAuthenticationType MerchantAuthentication { get; set; }
 
         private TQ _apiRequest;
@@ -37,13 +37,11 @@ namespace AuthorizeNET.Api.Controllers.Bases
                 throw new InvalidOperationException("Response should be null");
             }
 
-            _requestClass = typeof(TQ);//Type<TQ>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
-            _responseClass = typeof(TS);// GetResponseType();
+            _requestClass = typeof(TQ);
+            _responseClass = typeof(TS);
             SetApiRequest(apiRequest);
 
             Logger.LogDebug("Creating instance for request:'{0}' and response:'{1}'", _requestClass, _responseClass);
-            //Logger.debug(string.Format("Request:'{0}'", apiRequest));
-            //Logger.debug(string.Format("Request(Ctor):'{0}'", XmlUtility.GetXml(apiRequest)));
             Validate();
         }
 
@@ -77,7 +75,7 @@ namespace AuthorizeNET.Api.Controllers.Bases
             _errorResponse = errorResponse;
         }
 
-        public TS ExecuteWithApiResponse(AuthorizeNET.Environment environment = null)
+        public TS ExecuteWithApiResponse(AuthorizeNet.Environment environment = null)
         {
             Execute(environment);
             return GetApiResponse();
@@ -85,11 +83,9 @@ namespace AuthorizeNET.Api.Controllers.Bases
 
         const String NullEnvironmentErrorMessage = "Environment not set. Set environment using setter or use overloaded method to pass appropriate environment";
 
-        public void Execute(AuthorizeNET.Environment environment = null)
+        public void Execute(AuthorizeNet.Environment environment = null)
         {
             BeforeExecute();
-
-            //Logger.debug(string.Format(CultureInfo.InvariantCulture, "Executing Request:'{0}'", XmlUtility.GetXml(GetApiRequest())));
 
             if (null == environment) { environment = ApiOperationBase<ANetApiRequest, ANetApiResponse>.RunEnvironment; }
             if (null == environment) throw new ArgumentException(NullEnvironmentErrorMessage);
@@ -181,33 +177,11 @@ namespace AuthorizeNET.Api.Controllers.Bases
 
         private void Validate()
         {
-
-            ANetApiRequest request = GetApiRequest();
-
             //validate not nulls
             ValidateAndSetMerchantAuthentication();
 
             //set the client Id
-            SetClientId();
-
-            //validate nulls
-            var merchantAuthenticationType = request.merchantAuthentication;
-            //if ( null != ) throw new IllegalArgumentException(" needs to be null");
-
-            //TODO
-            /*
-		    if ( null != merchantAuthenticationType.Item.GetType().   sessionToken) throw new IllegalArgumentException("SessionToken needs to be null");
-		    if ( null != merchantAuthenticationType.getPass_word()) throw new IllegalArgumentException("Pass_word needs to be null");
-		    if ( null != merchantAuthenticationType.getMobileDeviceId()) throw new IllegalArgumentException("MobileDeviceId needs to be null");
-             
-	    
-	        var impersonationAuthenticationType = merchantAuthenticationType.impersonationAuthentication;
-		    if ( null != impersonationAuthenticationType) throw new IllegalArgumentException("ImpersonationAuthenticationType needs to be null");
-            */
-            //	    impersonationAuthenticationType.setPartnerLoginId(CnpApiLoginIdKey);
-            //	    impersonationAuthenticationType.setPartnerTransactionKey(CnpTransactionKey);
-            //	    merchantAuthenticationType.setImpersonationAuthentication(impersonationAuthenticationType);
-
+            SetClientId();          
             ValidateRequest();
         }
 

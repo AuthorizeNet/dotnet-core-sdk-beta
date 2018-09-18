@@ -1,7 +1,7 @@
-namespace AuthorizeNET.Api.Controllers.Bases
+namespace AuthorizeNet.Api.Controllers.Bases
 {
     using System.Text;
-    using AuthorizeNET.Api.Contracts.V1;
+    using AuthorizeNet.Api.Contracts.V1;
 
     //@XmlRootElement(name = "ErrorResponse")
     /**

@@ -1,4 +1,4 @@
-namespace AuthorizeNET.Api.Controllers.Bases
+namespace AuthorizeNet.Api.Controllers.Bases
 {
     using System.Collections.Generic;
 
@@ -9,8 +9,8 @@ namespace AuthorizeNET.Api.Controllers.Bases
         TS GetApiResponse();
         Contracts.V1.ANetApiResponse GetErrorResponse();
         TS ExecuteWithApiResponse(Environment environment = null);
-        void Execute(AuthorizeNET.Environment environment = null);
-        AuthorizeNET.Api.Contracts.V1.messageTypeEnum GetResultCode();
+        void Execute(AuthorizeNet.Environment environment = null);
+        AuthorizeNet.Api.Contracts.V1.messageTypeEnum GetResultCode();
         List<string> GetResults();
     }
 }

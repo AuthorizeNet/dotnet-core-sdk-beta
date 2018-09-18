@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Security.Cryptography;
 
-namespace AuthorizeNET.Utilities
+namespace AuthorizeNet.Utilities
 {
     /// <summary>
     /// Source Code from MSDN article http://msdn.microsoft.com/en-us/magazine/cc163367.aspx
