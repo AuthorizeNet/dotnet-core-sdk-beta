@@ -1,8 +1,8 @@
-﻿namespace AuthorizeNET.Api.Controllers
+﻿namespace AuthorizeNet.Api.Controllers
 {
     using System;
-    using AuthorizeNET.Api.Contracts.V1;
-    using AuthorizeNET.Api.Controllers.Bases;
+    using AuthorizeNet.Api.Contracts.V1;
+    using AuthorizeNet.Api.Controllers.Bases;
 
 
     public class ARBGetSubscriptionListController : ApiOperationBase<ARBGetSubscriptionListRequest, ARBGetSubscriptionListResponse> {

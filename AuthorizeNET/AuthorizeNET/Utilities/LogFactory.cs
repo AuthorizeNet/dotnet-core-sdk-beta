@@ -1,4 +1,4 @@
-﻿namespace AuthorizeNET.Utilities
+﻿namespace AuthorizeNet.Utilities
 {
     using System;
     using Microsoft.Extensions.Logging;

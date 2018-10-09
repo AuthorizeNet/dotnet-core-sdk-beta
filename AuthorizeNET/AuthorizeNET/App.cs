@@ -1,12 +1,9 @@
-﻿namespace AuthorizeNET
+﻿namespace AuthorizeNet
 {
     public class App
     {
 
-        public const string CpVersion = "1.0";  // card present version
-        public const int MaxLoginLength = 20;
-        public const int MaxTransactionKeyLength = 16;
-
+        public const string CpVersion = "1.0";  // card present version 
         protected Environment Environment { get; set; }
         protected string Login { get; set; }
         protected string TransactionKey { get; set; }

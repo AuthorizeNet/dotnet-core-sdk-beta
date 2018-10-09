@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Security.Cryptography;
 
-namespace AuthorizeNET.Utilities
+namespace AuthorizeNet.Utilities
 {
     public class Crypto
     {
