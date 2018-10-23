@@ -6,15 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Utilities\Crypto.cs" />
+    <Compile Remove="AuthorizeNet.Core\**" />
+    <EmbeddedResource Remove="AuthorizeNet.Core\**" />
+    <None Remove="AuthorizeNet.Core\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="AuthorizeNet.Core\.vs\AuthorizeNet.Core\v15\Server\sqlite3\db.lock" />
-    <None Include="AuthorizeNet.Core\.vs\AuthorizeNet.Core\v15\Server\sqlite3\storage.ide" />
-    <None Include="AuthorizeNet.Core\.vs\AuthorizeNet.Core\v15\Server\sqlite3\storage.ide-shm" />
-    <None Include="AuthorizeNet.Core\.vs\AuthorizeNet.Core\v15\Server\sqlite3\storage.ide-wal" />
-    <None Include="AuthorizeNet.Core\AuthorizeNet.Core.sln" />
+    <Compile Remove="Utilities\Crypto.cs" />
   </ItemGroup>
 
   <ItemGroup>
