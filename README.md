@@ -1,4 +1,4 @@
-﻿# Authorize.Net .NET Core SDK
+﻿# Authorize.Net .NET Core SDK - Beta 
 
 [![Travis CI Status](https://travis-ci.org/AuthorizeNet/sdk-dotnet.svg?branch=master)](https://travis-ci.org/AuthorizeNet/sdk-dotnet)
 [![Code Climate](https://codeclimate.com/github/AuthorizeNet/sdk-dotnet/badges/gpa.svg)](https://codeclimate.com/github/AuthorizeNet/sdk-dotnet)
