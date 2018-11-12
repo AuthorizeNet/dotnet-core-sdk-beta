@@ -16,9 +16,11 @@ The Authorize.Net APIs only support connections using the TLS 1.2 security proto
 
 
 ## Installation
-To install the AuthorizeNet .NET Core SDK, run the following command in the Package Manager Console:
+[//]: # "To install the AuthorizeNet .NET Core SDK, run the following command in the Package Manager Console:"
 
-`PM> Install-Package AuthorizeNet`
+[//]: # "`PM> Install-Package AuthorizeNet`"
+
+Since this is a beta release, the SDK will not be available in NuGet gallery at the moment. To facilitate testing by the developer community, we have pre-compiled the SDK and placed it in `ReleaseArtifact` folder.
 
 
 ## Registration & Configuration
