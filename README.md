@@ -8,7 +8,6 @@
 ## Requirements
 * .NET Core 1.1.0 or later
 * Microsoft&reg; Visual Studio 2017 or later
-* Nunit (not supported by .Net Core);
 * An Authorize.Net account (see _Registration & Configuration_ section below)
 
 ### TLS 1.2
