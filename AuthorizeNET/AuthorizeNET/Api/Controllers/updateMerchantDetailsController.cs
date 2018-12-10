@@ -5,9 +5,9 @@
     using AuthorizeNet.Api.Controllers.Bases;
 
 #pragma warning disable 1591
-    public class deleteCustomerProfileController : ApiOperationBase<deleteCustomerProfileRequest, deleteCustomerProfileResponse> {
+    public class updateMerchantDetailsController : ApiOperationBase<updateMerchantDetailsRequest, updateMerchantDetailsResponse> {
 
-	    public deleteCustomerProfileController(deleteCustomerProfileRequest apiRequest) : base(apiRequest) {
+	    public updateMerchantDetailsController(updateMerchantDetailsRequest apiRequest) : base(apiRequest) {
 	    }
 
 	    override protected void ValidateRequest() {
@@ -19,6 +19,12 @@
 		
 		    //validate not-required fields		
 	    }
+
+        protected override void BeforeExecute()
+        {
+            var request = GetApiRequest();
+            RequestFactoryWithSpecified.updateMerchantDetailsRequest(request);
+        }
     }
 #pragma warning restore 1591
 }

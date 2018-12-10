@@ -5,9 +5,9 @@
     using AuthorizeNet.Api.Controllers.Bases;
 
 #pragma warning disable 1591
-    public class createCustomerProfileController : ApiOperationBase<createCustomerProfileRequest, createCustomerProfileResponse> {
+    public class createFingerPrintController : ApiOperationBase<createFingerPrintRequest, createFingerPrintResponse> {
 
-	    public createCustomerProfileController(createCustomerProfileRequest apiRequest) : base(apiRequest) {
+	    public createFingerPrintController(createFingerPrintRequest apiRequest) : base(apiRequest) {
 	    }
 
 	    override protected void ValidateRequest() {
@@ -15,7 +15,7 @@
 		
 		    //validate required fields		
 		    //if ( 0 == request.SearchType) throw new ArgumentException( "SearchType cannot be null");
-		    //if ( null == request.Paging) throw new ArgumentException("Paging cannot be null");
+            if (null == request.supportInformation) throw new ArgumentException("supportInformation cannot be null");
 		
 		    //validate not-required fields		
 	    }
@@ -23,7 +23,7 @@
         protected override void BeforeExecute()
         {
             var request = GetApiRequest();
-            RequestFactoryWithSpecified.createCustomerProfileRequest(request);
+            RequestFactoryWithSpecified.createFingerPrintRequest(request);
         }
     }
 #pragma warning restore 1591

@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Api\Controllers\createFingerPrintController.cs" />
     <Compile Remove="Utilities\Crypto.cs" />
   </ItemGroup>
 

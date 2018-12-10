@@ -4,7 +4,7 @@
     using AuthorizeNet.Api.Contracts.V1;
     using AuthorizeNet.Api.Controllers.Bases;
 
-
+#pragma warning disable 1591
     public class isAliveController : ApiOperationBase<ANetApiRequest, isAliveResponse>
     {
 
@@ -14,7 +14,8 @@
 	    }
 
 	    override protected void ValidateRequest() {
-            var request = GetApiRequest();		
+            var request = GetApiRequest();
+		
 	    }
 
         protected override void BeforeExecute()
@@ -23,5 +24,5 @@
             RequestFactoryWithSpecified.isAliveRequest(request);
         }
     }
-
+#pragma warning restore 1591
 }

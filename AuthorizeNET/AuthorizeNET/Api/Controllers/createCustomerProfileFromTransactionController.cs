@@ -4,7 +4,7 @@
     using AuthorizeNet.Api.Contracts.V1;
     using AuthorizeNet.Api.Controllers.Bases;
 
-
+#pragma warning disable 1591
     public class createCustomerProfileFromTransactionController : ApiOperationBase<createCustomerProfileFromTransactionRequest, createCustomerProfileResponse>
     {
 
@@ -17,8 +17,10 @@
             var request = GetApiRequest();
 		
 		    //validate required fields		
-            if (null == request.transId) throw new ArgumentException("transactionId cannot be null");		    		
+            if (null == request.transId) throw new ArgumentException("transactionId cannot be null");
+		
+		    //validate not-required fields		
 	    }
     }
-
+#pragma warning restore 1591
 }
