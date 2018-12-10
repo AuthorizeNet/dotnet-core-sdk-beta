@@ -5,9 +5,9 @@
     using AuthorizeNet.Api.Controllers.Bases;
 
 #pragma warning disable 1591
-    public class deleteCustomerProfileController : ApiOperationBase<deleteCustomerProfileRequest, deleteCustomerProfileResponse> {
+    public class getCustomerPaymentProfileNonceController : ApiOperationBase<getCustomerPaymentProfileNonceRequest, getCustomerPaymentProfileNonceResponse> {
 
-	    public deleteCustomerProfileController(deleteCustomerProfileRequest apiRequest) : base(apiRequest) {
+	    public getCustomerPaymentProfileNonceController(getCustomerPaymentProfileNonceRequest apiRequest) : base(apiRequest) {
 	    }
 
 	    override protected void ValidateRequest() {
@@ -17,8 +17,14 @@
 		    //if ( 0 == request.SearchType) throw new ArgumentException( "SearchType cannot be null");
 		    //if ( null == request.Paging) throw new ArgumentException("Paging cannot be null");
 		
-		    //validate not-required fields		
+		    //validate not-required fields	 	
 	    }
+
+        protected override void BeforeExecute()
+        {
+            var request = GetApiRequest();
+           // RequestFactoryWithSpecified.getCustomerPaymentProfileNonceType(request);
+        }
     }
 #pragma warning restore 1591
 }
