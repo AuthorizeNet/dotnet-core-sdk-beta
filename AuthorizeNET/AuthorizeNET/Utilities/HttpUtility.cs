@@ -1,14 +1,14 @@
 ﻿namespace AuthorizeNet.Utilities
 {
-	using Api.Contracts.V1;
-	using Api.Controllers.Bases;
-	using Microsoft.Extensions.Logging;
-	using System;
-	using System.Net.Http;
-	using System.Text;
-	using System.Net;
+    using Api.Contracts.V1;
+    using Api.Controllers.Bases;
+    using Microsoft.Extensions.Logging;
+    using System;
+    using System.Net;
+    using System.Net.Http;
+    using System.Text;
 
-	public static class HttpUtility
+    public static class HttpUtility
 	{
         
 		private static readonly ILogger Logger = LogFactory.getLog(typeof(HttpUtility));
