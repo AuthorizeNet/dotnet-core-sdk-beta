@@ -55,7 +55,7 @@ API credentials are different for each environment, so be sure to switch to the 
 
 ## SDK Usage Examples and Sample Code
 To get started using this SDK, it's highly recommended to download our sample code repository:
-* [Authorize.Net C# Sample Code Repository (on GitHub)](https://github.com/AuthorizeNet/dotnet-core-sdk-beta/tree/master/SampleCode)
+* [Authorize.Net C# Sample Code Repository (on GitHub)](https://github.com/AuthorizeNet/sample-code-csharp)
 
 In that respository, we have comprehensive sample code for all common uses of our API:
 
