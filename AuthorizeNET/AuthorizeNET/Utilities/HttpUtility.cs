@@ -7,6 +7,7 @@
     using System.Net;
     using System.Net.Http;
     using System.Text;
+    using System.Threading.Tasks;
 
     public static class HttpUtility
 	{
@@ -22,7 +23,7 @@
 			return postUrl;
 		}
 
-		public static ANetApiResponse PostData<TQ, TS>(AuthorizeNet.Environment env, TQ request)
+		public static async Task<ANetApiResponse> PostDataAsync<TQ, TS>(AuthorizeNet.Environment env, TQ request)
 			where TQ : ANetApiRequest
 			where TS : ANetApiResponse
 		{
@@ -45,12 +46,12 @@
 					var httpConnectionTimeout = AuthorizeNet.Environment.getIntProperty(Constants.HttpConnectionTimeout);
 					client.Timeout = TimeSpan.FromMilliseconds(httpConnectionTimeout != 0 ? httpConnectionTimeout : Constants.HttpConnectionDefaultTimeout);
 					var content = new StringContent(XmlUtility.Serialize(request), Encoding.UTF8, "text/xml");
-					var webResponse = client.PostAsync(postUrl, content).Result;
+					var webResponse = await client.PostAsync(postUrl, content);
 					Logger.LogDebug("Retrieving Response from Url: '{0}'", postUrl);
 
 					// Get the response
 					Logger.LogDebug("Received Response: '{0}'", webResponse);
-					responseAsString = webResponse.Content.ReadAsStringAsync().Result;
+					responseAsString = await webResponse.Content.ReadAsStringAsync();
 					Logger.LogDebug("Response from Stream: '{0}'", responseAsString);
 
 				}

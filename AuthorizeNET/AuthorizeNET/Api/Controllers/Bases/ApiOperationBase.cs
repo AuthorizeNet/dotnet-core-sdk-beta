@@ -6,6 +6,7 @@ namespace AuthorizeNet.Api.Controllers.Bases
     using Contracts.V1;
     using Utilities;
     using Microsoft.Extensions.Logging;
+    using System.Threading.Tasks;
 
     public abstract class ApiOperationBase<TQ, TS> : IApiOperation<TQ, TS>
             where TQ : ANetApiRequest
@@ -81,16 +82,22 @@ namespace AuthorizeNet.Api.Controllers.Bases
             return GetApiResponse();
         }
 
+        public async Task<TS> ExecuteWithApiResponseAsync(AuthorizeNet.Environment environment = null)
+        {
+            await ExecuteAsync(environment);
+            return GetApiResponse();
+        }
+
         const String NullEnvironmentErrorMessage = "Environment not set. Set environment using setter or use overloaded method to pass appropriate environment";
 
-        public void Execute(AuthorizeNet.Environment environment = null)
+        public async Task ExecuteAsync(AuthorizeNet.Environment environment = null)
         {
             BeforeExecute();
 
             if (null == environment) { environment = ApiOperationBase<ANetApiRequest, ANetApiResponse>.RunEnvironment; }
             if (null == environment) throw new ArgumentException(NullEnvironmentErrorMessage);
 
-            var httpApiResponse = HttpUtility.PostData<TQ, TS>(environment, GetApiRequest());
+            var httpApiResponse = await HttpUtility.PostDataAsync<TQ, TS>(environment, GetApiRequest());
 
             if (null != httpApiResponse)
             {
@@ -120,6 +127,11 @@ namespace AuthorizeNet.Api.Controllers.Bases
                 Logger.LogDebug("Got a 'null' Response for request:'{0}'\n", GetApiRequest());
             }
             AfterExecute();
+        }
+
+        public void Execute(AuthorizeNet.Environment environment = null)
+        {
+            ExecuteAsync(environment).ConfigureAwait(false);
         }
 
         public messageTypeEnum GetResultCode()
@@ -171,6 +183,7 @@ namespace AuthorizeNet.Api.Controllers.Bases
         protected messageTypeEnum ResultCode = messageTypeEnum.Ok;
 
         protected virtual void BeforeExecute() { }
+
         protected virtual void AfterExecute() { }
 
         protected abstract void ValidateRequest();
@@ -181,7 +194,7 @@ namespace AuthorizeNet.Api.Controllers.Bases
             ValidateAndSetMerchantAuthentication();
 
             //set the client Id
-            SetClientId();          
+            SetClientId();
             ValidateRequest();
         }
 
