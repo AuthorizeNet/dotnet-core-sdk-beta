@@ -6,7 +6,7 @@
 
 
 ## Requirements
-* .NET Core 2.0 or later
+* .NET Standard 2.0 or later (.Net Framework 4.6.1)
 * Microsoft&reg; Visual Studio 2017 or later
 * An Authorize.Net account (see _Registration & Configuration_ section below)
 

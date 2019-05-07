@@ -2,7 +2,16 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>1.0.0.0</Version>
+    <Version>1.0.0-beta</Version>
+    <PackageId>AuthorizeNet.DotNetCore</PackageId>
+    <PackageProjectUrl>https://github.com/AuthorizeNet/dotnet-core-sdk-beta</PackageProjectUrl>
+    <PackageTags>Payments API Authorize.Net</PackageTags>
+    <Authors>Authorize.Net</Authors>
+    <Company>Authorize.Net</Company>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Description>Use this SDK to integrate with the Authorize.Net APIs for Payment Transactions, Recurring Billing and Customer Payment Profiles.</Description>
+    <Copyright>Authorize.Net</Copyright>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
