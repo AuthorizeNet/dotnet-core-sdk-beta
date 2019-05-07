@@ -7,6 +7,7 @@ namespace AuthorizeNet.Api.Controllers.Bases
     using Utilities;
     using Microsoft.Extensions.Logging;
     using System.Threading.Tasks;
+    using AuthorizeNET.Utilities;
 
     public abstract class ApiOperationBase<TQ, TS> : IApiOperation<TQ, TS>
             where TQ : ANetApiRequest
@@ -131,7 +132,7 @@ namespace AuthorizeNet.Api.Controllers.Bases
 
         public void Execute(AuthorizeNet.Environment environment = null)
         {
-            ExecuteAsync(environment).ConfigureAwait(false);
+            AsyncUtil.RunSync(() => ExecuteAsync(environment));
         }
 
         public messageTypeEnum GetResultCode()
