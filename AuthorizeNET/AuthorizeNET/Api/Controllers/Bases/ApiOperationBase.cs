@@ -31,7 +31,7 @@ namespace AuthorizeNet.Api.Controllers.Bases
             if (null == apiRequest)
             {
                 Logger.LogError("null apiRequest");
-                throw new ArgumentNullException("apiRequest", "Input request cannot be null");
+                throw new ArgumentNullException(nameof(apiRequest), "Input request cannot be null");
             }
             if (null != GetApiResponse())
             {
