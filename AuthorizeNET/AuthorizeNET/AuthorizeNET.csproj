@@ -1,20 +1,23 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
-    <Version>1.0.0.0</Version>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>0.1.2-beta</Version>
+    <PackageId>AuthorizeNet.DotNetCore</PackageId>
+    <PackageProjectUrl>https://github.com/AuthorizeNet/dotnet-core-sdk-beta</PackageProjectUrl>
+    <PackageTags>Payments API Authorize.Net</PackageTags>
+    <Authors>Authorize.Net</Authors>
+    <Company>Authorize.Net</Company>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Description>Use this SDK to integrate with the Authorize.Net APIs for Payment Transactions, Recurring Billing and Customer Payment Profiles.</Description>
+    <Copyright>Authorize.Net</Copyright>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>bin\Release\netcoreapp2.0\AuthorizeNET.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\netstandard2.0\AuthorizeNET.xml</DocumentationFile>
     <OutputPath></OutputPath>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="AuthorizeNet.Core\**" />
-    <EmbeddedResource Remove="AuthorizeNet.Core\**" />
-    <None Remove="AuthorizeNet.Core\**" />
-  </ItemGroup>
 
   <ItemGroup>
     <Compile Remove="Api\Controllers\createFingerPrintController.cs" />
@@ -23,7 +26,6 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Logging" Version="1.1.1" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.1.1" />
     <PackageReference Include="System.ComponentModel.Primitives" Version="4.3.0" />
     <PackageReference Include="System.Xml.XmlSerializer" Version="4.3.0" />
   </ItemGroup>
