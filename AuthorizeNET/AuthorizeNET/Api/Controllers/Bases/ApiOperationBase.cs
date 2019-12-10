@@ -85,7 +85,7 @@ namespace AuthorizeNet.Api.Controllers.Bases
 
         public async Task<TS> ExecuteWithApiResponseAsync(AuthorizeNet.Environment environment = null)
         {
-            await ExecuteAsync(environment);
+            await ExecuteAsync(environment).ConfigureAwait(false);
             return GetApiResponse();
         }
 
@@ -98,7 +98,7 @@ namespace AuthorizeNet.Api.Controllers.Bases
             if (null == environment) { environment = ApiOperationBase<ANetApiRequest, ANetApiResponse>.RunEnvironment; }
             if (null == environment) throw new ArgumentException(NullEnvironmentErrorMessage);
 
-            var httpApiResponse = await HttpUtility.PostDataAsync<TQ, TS>(environment, GetApiRequest());
+            var httpApiResponse = await HttpUtility.PostDataAsync<TQ, TS>(environment, GetApiRequest()).ConfigureAwait(false);
 
             if (null != httpApiResponse)
             {

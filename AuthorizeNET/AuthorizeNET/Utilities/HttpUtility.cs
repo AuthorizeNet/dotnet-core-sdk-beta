@@ -46,12 +46,12 @@
 					var httpConnectionTimeout = AuthorizeNet.Environment.getIntProperty(Constants.HttpConnectionTimeout);
 					client.Timeout = TimeSpan.FromMilliseconds(httpConnectionTimeout != 0 ? httpConnectionTimeout : Constants.HttpConnectionDefaultTimeout);
 					var content = new StringContent(XmlUtility.Serialize(request), Encoding.UTF8, "text/xml");
-					var webResponse = await client.PostAsync(postUrl, content);
+					var webResponse = await client.PostAsync(postUrl, content).ConfigureAwait(false);
 					Logger.LogDebug("Retrieving Response from Url: '{0}'", postUrl);
 
 					// Get the response
 					Logger.LogDebug("Received Response: '{0}'", webResponse);
-					responseAsString = await webResponse.Content.ReadAsStringAsync();
+					responseAsString = await webResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
 					Logger.LogDebug("Response from Stream: '{0}'", responseAsString);
 
 				}
