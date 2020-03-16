@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
-    <metadata>
-        <id>AuthorizeNet.DotnetCore</id>
-        <version>1.0.0</version>
-        <title>AuthorizeNet.DotnetCore</title>
-        <authors>Authorize.Net</authors>
-        <owners>AuthorizeNet</owners>
-        <licenseUrl>https://github.com/AuthorizeNet/dotnet-core-sdk-beta/blob/master/LICENSE</licenseUrl>
-        <projectUrl>https://github.com/AuthorizeNet/dotnet-core-sdk-beta</projectUrl>
-        <iconUrl>http://developer.authorize.net/resources/images/favicon.ico</iconUrl>
-        <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>Use this SDK to integrate with the Authorize.Net APIs for Payment Transactions, Recurring Billing and Customer Payment Profiles.</description>
-        <summary>Authorize.Net SDK for .Net Core</summary>
-        <tags>Payments API Authorize.Net</tags>
-    </metadata>
-    <files>
-        <file src="AuthorizeNET\AuthorizeNET\bin\Release\netcoreapp2.0\AuthorizeNet.dll" target="lib\AuthorizeNet.dll" />
-	<file src="AuthorizeNET\AuthorizeNET\bin\Release\netcoreapp2.0\AuthorizeNet.xml" target="lib\AuthorizeNet.xml" />
-    </files>
+  <metadata>
+    <id>AuthorizeNet.DotNetCore</id>
+    <version>1.0.0-beta</version>
+    <title>AuthorizeNet.DotNetCore</title>
+    <authors>Authorize.Net</authors>
+    <owners>AuthorizeNet</owners>
+    <licenseUrl>https://github.com/AuthorizeNet/dotnet-core-sdk-beta/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/AuthorizeNet/dotnet-core-sdk-beta</projectUrl>
+    <iconUrl>http://developer.authorize.net/resources/images/favicon.ico</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Use this SDK to integrate with the Authorize.Net APIs for Payment Transactions, Recurring Billing and Customer Payment Profiles.</description>
+    <summary>Authorize.Net SDK for .Net Core</summary>
+    <tags>Payments API Authorize.Net</tags>
+  </metadata>
+  <files>
+    <file src="AuthorizeNET\AuthorizeNET\bin\Release\netstandard2.0\AuthorizeNet.dll" target="lib\AuthorizeNet.dll" />
+    <file src="AuthorizeNET\AuthorizeNET\bin\Release\netstandard2.0\AuthorizeNet.xml" target="lib\AuthorizeNet.xml" />
+  </files>
 </package>
