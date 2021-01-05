@@ -1758,66 +1758,7 @@ namespace AuthorizeNet.Api.Contracts.V1 {
         /// <remarks/>
         public string description;
         
-        /// <remarks/>
-        public decimal discountAmount;
         
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool discountAmountSpecified;
-        
-        /// <remarks/>
-        public bool taxIsAfterDiscount;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool taxIsAfterDiscountSpecified;
-        
-        /// <remarks/>
-        public string totalTaxTypeCode;
-        
-        /// <remarks/>
-        public string purchaserVATRegistrationNumber;
-        
-        /// <remarks/>
-        public string merchantVATRegistrationNumber;
-        
-        /// <remarks/>
-        public string vatInvoiceReferenceNumber;
-        
-        /// <remarks/>
-        public string purchaserCode;
-        
-        /// <remarks/>
-        public string summaryCommodityCode;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="date")]
-        public System.DateTime purchaseOrderDateUTC;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool purchaseOrderDateUTCSpecified;
-        
-        /// <remarks/>
-        public string supplierOrderReference;
-        
-        /// <remarks/>
-        public string authorizedContactName;
-        
-        /// <remarks/>
-        public string cardAcceptorRefNumber;
-        
-        /// <remarks/>
-        public string amexDataTAA1;
-        
-        /// <remarks/>
-        public string amexDataTAA2;
-        
-        /// <remarks/>
-        public string amexDataTAA3;
-        
-        /// <remarks/>
-        public string amexDataTAA4;
         
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
