@@ -5,11 +5,10 @@
 
     public static class LogFactory
     {
-        private static ILoggerFactory LoggerFactory => new LoggerFactory().AddDebug(LogLevel.Debug);
-
         public static ILogger getLog(Type classType)
         {
-            return LoggerFactory.CreateLogger(classType.FullName);
+            using var loggerFactory = LoggerFactory.Create(builder => builder.AddDebug());
+            return loggerFactory.CreateLogger(classType.FullName);
         }
     }
 }
